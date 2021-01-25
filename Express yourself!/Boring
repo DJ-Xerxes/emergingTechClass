@@ -1,0 +1,86 @@
+
+float  slow_rect1_x = 0;
+float  slow_rect2_x = 0;
+float  slow_rect3_x = 0;
+float  fast_rect1_x = 0;
+float  fast_rect2_x = 0;
+float  fast_rect3_x = 0;
+float  fast_rect4_x = 0;
+
+
+float  theta=0.0;
+float  width=400;
+float  height=400;
+
+int r = int(random(255));
+int g = int(random(255));
+int b = int(random(255));
+
+void setup() {
+  size(400, 400);
+  noStroke();
+  smooth();
+  //frameRate(200); 
+}
+
+void draw() {
+  background(16,17,19);
+
+  fill(r,g,b);
+  rect(slow_rect1_x, 0, 120, 5);
+  slow_rect1_x = slow_rect1_x + 6;
+
+  fill(r,g,b);
+  rect(fast_rect1_x, 70, 60, 8);
+  fast_rect1_x = fast_rect1_x + 7;
+  
+  fill(r,g,b);
+  rect(slow_rect2_x, 130, 120, 5);
+  slow_rect2_x = slow_rect2_x + 5;
+
+  fill(r,g,b);
+  rect(fast_rect2_x, 160, 60, 8);
+  fast_rect2_x = fast_rect2_x +8;
+  
+  fill(r,g,b);
+  rect(slow_rect3_x, 300, 120, 5);
+  slow_rect3_x = slow_rect3_x +6;
+
+  fill(r,g,b);
+  rect(fast_rect3_x, 320, 60, 8);
+  fast_rect3_x = fast_rect3_x + 2;
+  
+  fill(r,g,b);
+  rect(fast_rect4_x, 380, 60, 8);
+  fast_rect4_x = fast_rect4_x + 4;
+
+  if (slow_rect1_x > 400) {
+    slow_rect1_x = 0;
+  }
+  if (fast_rect1_x > 400) {
+    fast_rect1_x = 0;
+  }
+    if (slow_rect2_x > 400) {
+    slow_rect2_x = 0;
+  }
+  if (fast_rect2_x > 400) {
+    fast_rect2_x = 0;
+  }
+      if (slow_rect3_x > 400) {
+    slow_rect3_x = 0;
+  }
+  if (fast_rect3_x > 400) {
+    fast_rect3_x = 0;
+  }
+  
+  if (fast_rect4_x > 400) {
+    fast_rect4_x = 0;
+  }
+  float x=(sin(theta)+1)*width/2;
+  theta +=0.05;
+  //circle and line
+  fill(255);
+  stroke(255);
+  line(width/2,0,x,height/2);
+  ellipse(x,height/2,15,15);
+}
